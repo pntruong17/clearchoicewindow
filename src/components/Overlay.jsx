@@ -40,7 +40,7 @@ export function Overlay() {
                             <h1 className="text-2xl md:text-5xl font-extrabold tracking-tighter">Select Your Window</h1>
                             <p className='text-base font-light tracking-tighter'>Enhance your home's aesthetics</p>
                         </div>
-                        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 p-10 overflow-scroll">
+                        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 p-10 overflow-hidden">
                             {products.map((product, index) => (
                                 <motion.div
                                     key={product.id}
