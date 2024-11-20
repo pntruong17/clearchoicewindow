@@ -23,8 +23,6 @@ function App({ position = [0, 0, 1.68], fov = 50 }) {
         >
           <Window_1 />
         </PresentationControls>
-        <Center>
-        </Center>
       </Canvas>
       <Overlay />
 

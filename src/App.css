@@ -80,6 +80,7 @@ body {
 }
 
 .circle {
+  margin: 2px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -90,6 +91,16 @@ body {
 .circle:hover {
   transform: scale(1.2);
   cursor: pointer;
+}
+
+.customizer {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 25px;
 }
 
 @keyframes logo-spin {
@@ -107,15 +118,29 @@ body {
   flex-direction: column;
   position: absolute;
   top: 50%;
-  right: 150px;
+  transform: translateY(-50%);
+}
+.bg-options {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 20px;
   transform: translateY(-50%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+@media screen and (max-width: 640px) {
+
+  .bg-options {
+    margin-top: 80px;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
   }
 }
+
 
 .card {
   padding: 2em;

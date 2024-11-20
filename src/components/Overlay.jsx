@@ -33,14 +33,14 @@ export function Overlay() {
             <AnimatePresence>
                 {snap.intro ? (
                     <motion.section key="main" {...config} className="absolute top-0 left-0 w-full min-h-full flex flex-col items-center justify-center bg-[#FDFFFF]">
-                        <div className="h-24 md:h-32 w-96 overflow-hidden px-5 py-4 md:py-8">
+                        <div className="h-20 md:h-32 w-96 overflow-hidden px-5 py-4 md:py-8">
                             <img src={logo} alt="Logo" className="h-full w-full object-contain" />
                         </div>
                         <div className="mb-3 md:mb-8 text-center">
-                            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tighter">Select Your Window</h1>
+                            <h1 className="text-2xl md:text-5xl font-extrabold tracking-tighter">Select Your Window</h1>
                             <p className='text-base font-light tracking-tighter'>Enhance your home's aesthetics</p>
                         </div>
-                        <div className="grid md:grid-cols-6 gap-4 p-10">
+                        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 p-10 overflow-scroll">
                             {products.map((product, index) => (
                                 <motion.div
                                     key={product.id}
@@ -83,19 +83,19 @@ export function Overlay() {
 function Customizer() {
     const snap = useSnapshot(state)
     return (
-        <div className="flex flex-col items-center justify-center h-full w-full mb-6 bg-[#FDFFFF]">
+        <div className="customizer bg-[#FDFFFF]">
             <div className="absolute top-[40px] left-[30px] h-20 w-64 overflow-hidden">
                 <img src={logo} alt="Logo" className="h-full w-full object-contain" />
             </div>
-            <div className="absolute bottom-[40px] flex gap-2.5 mb-5">
+            <div className="bg-options">
                 {snap.colors.map((color) => (
                     <div key={color} className="circle" style={{ background: color }} onClick={() => (state.color = color)}></div>
                 ))}
             </div>
-            <div className="matt-options">
+            <div className="matt-options right-5 sm:right-36">
                 {snap.matcodes.map((mat, index) => (
                     <div key={mat} className="circle m-2" style={{ background: mat }} onClick={() => (state.mat = mat, console.log(mat))}>
-                        <p className='ml-10'>{snap.mats[index]}</p>
+                        <p className='ml-10 hidden sm:block'>{snap.mats[index]}</p>
                     </div>
                 ))}
             </div>
