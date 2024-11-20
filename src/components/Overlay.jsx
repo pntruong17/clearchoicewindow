@@ -1,11 +1,10 @@
-//import { Logo } from '@pmndrs/branding'
 import { motion, AnimatePresence } from 'framer-motion'
-import { AiFillCamera, AiOutlineArrowLeft, AiOutlineHighlight, AiOutlineShopping } from 'react-icons/ai'
+import { AiFillCamera, AiOutlineArrowLeft } from 'react-icons/ai'
 import { useSnapshot } from 'valtio'
 import { state } from '../store'
 
-import logo from '../assets/CCW-Logo1.png'; // Đảm bảo bạn có tệp logo trong thư mục assets
-import image1 from '../assets/FreshSight.png'; // Thay thế bằng đường dẫn thực tế của bạn
+import logo from '../assets/CCW-Logo1.png';
+import image1 from '../assets/FreshSight.png';
 import image2 from '../assets/TitanEdge.png';
 import image3 from '../assets/DreamGlaze.png';
 import image4 from '../assets/DreamGlaze.png';
