@@ -8,7 +8,7 @@ function playClick() {
     sound.play()
 }
 
-function playThemeMusic() {
+function playThemeMusic(bool) {
     let sound = new Howl({
         src: ['./stylish-deep-electronic.mp3'],
         loop: true,
@@ -17,7 +17,7 @@ function playThemeMusic() {
             console.log('Finished!');
         }
     });
-    sound.play()
+    bool ? sound.play() : Howler.stop();
 }
 
 function playSlide() {

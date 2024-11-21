@@ -27,6 +27,7 @@ export function FreshSight(props) {
         return 'Invalid value';
     }
   }
+
   function checkMatt1() {
     switch (snap.mat) {
       case '#FEFEFE':
@@ -41,6 +42,32 @@ export function FreshSight(props) {
         return materials.bronze;
       default:
         return 'Invalid value';
+    }
+
+
+  }
+  function checkGrid1() {
+    switch (snap.gridOption) {
+      case 'No Grid':
+        return false;
+      case 'Grid Style 1':
+        return true;
+      case 'Grid Style 2':
+        return false;
+      default:
+        return false;
+    }
+  }
+  function checkGrid2() {
+    switch (snap.gridOption) {
+      case 'No Grid':
+        return false;
+      case 'Grid Style 1':
+        return false;
+      case 'Grid Style 2':
+        return true;
+      default:
+        return false;
     }
   }
   useFrame((state, delta) => {
@@ -57,7 +84,7 @@ export function FreshSight(props) {
         <mesh geometry={nodes.Cube010_1.geometry} material={materials.glass} />
       </group>
       <mesh geometry={nodes.Cube031_3.geometry} material={materials.metal} />
-      <mesh geometry={nodes.cut1022.geometry} material={checkMatt2()} visible={snap.grid} />{/* grid */}
+      <mesh geometry={nodes.cut1022.geometry} material={checkMatt2()} visible={checkGrid1()} />{/* grid */}
       <mesh geometry={nodes.Cube031.geometry} material={checkMatt1()} /> {/* mat truoc */}
       <mesh geometry={nodes.Cube031_1.geometry} material={checkMatt2()} />
       <mesh geometry={nodes.Cube031_2.geometry} material={materials.glass} />

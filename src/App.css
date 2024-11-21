@@ -57,7 +57,10 @@ body {
 .back--button:hover {
   color: rgb(253, 253, 253);
 }
-
+.vert--text{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
 .slide--button {
   height: 40px;
   border-radius: 6px;
@@ -125,20 +128,14 @@ body {
   flex-direction: row;
   position: absolute;
   bottom: 20px;
+  left: 20px;
   transform: translateY(-50%);
 }
 
 
 @media screen and (max-width: 640px) {
 
-  .bg-options {
-    margin-top: 80px;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 40px;
-    transform: translateY(-50%);
-  }
+  
 }
 
 
