@@ -7,7 +7,7 @@ const state = proxy({
     grid: true,
 
     colors: ['#FDFFFF', '#EFBD4E', '#80C670', '#726DE8', '#EF674E', '#353934'],
-    color: '#EFBD4E',
+    color: '#FDFFFF',
 
     mats: ['White', 'Clay', 'Sandtone', 'Black/White', 'Bronze/White'],
     matcodes: ['#FEFEFE', '#8D7D73', '#CFC0A1', '#07080B', '#52462A'],

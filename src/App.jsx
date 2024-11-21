@@ -8,6 +8,8 @@ import './App.css'
 
 function App({ position = [0, 0, 1.68], fov = 50 }) {
   const snap = useSnapshot(state)
+
+
   return (
     <>
       <Canvas shadows camera={{ position, fov }} gl={{ preserveDrawingBuffer: true }} eventSource={document.getElementById('root')} eventPrefix="client">

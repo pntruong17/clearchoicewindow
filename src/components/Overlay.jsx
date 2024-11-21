@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AiFillCamera, AiOutlineArrowLeft } from 'react-icons/ai'
 import { useSnapshot } from 'valtio'
 import { state } from '../store'
+import { Howler } from 'howler'
+import { playClick, playThemeMusic, playSlide } from '../SoundFx'
 
 import logo from '../assets/CCW-Logo1.png';
 import image1 from '../assets/FreshSight.png';
@@ -28,6 +31,13 @@ export function Overlay() {
         { id: 6, image: image6, comp: "pro1", name: 'TitanEdge' },
     ];
 
+    useEffect(() => {
+        if (!snap.intro) {
+            playThemeMusic()
+        } else { Howler.stop(), playClick() }
+        console.log(snap.intro)
+
+    }, [snap.intro])
     return (
         <>
             <AnimatePresence>
@@ -56,7 +66,7 @@ export function Overlay() {
                                         delayChildren: 0.2,
                                     }}
                                     className="flex flex-col items-center cursor-pointer"
-                                    onClick={() => { state.intro = false; state.window = product.id }}
+                                    onClick={() => { state.intro = false; state.window = product.id; playClick() }}
                                 >
                                     <div className="h-10 md:h-32 w-auto overflow-hidden">
                                         <img src={product.image} alt={product.name} className="h-full w-full object-contain" />
@@ -82,6 +92,7 @@ export function Overlay() {
 
 function Customizer() {
     const snap = useSnapshot(state)
+
     return (
         <div className="customizer bg-[#FDFFFF]">
             <div className="absolute top-[40px] left-[30px] h-20 w-64 overflow-hidden">
@@ -89,23 +100,23 @@ function Customizer() {
             </div>
             <div className="bg-options">
                 {snap.colors.map((color) => (
-                    <div key={color} className="circle" style={{ background: color }} onClick={() => (state.color = color)}></div>
+                    <div key={color} className="circle" style={{ background: color }} onClick={() => { state.color = color; playClick() }}></div>
                 ))}
             </div>
             <div className="matt-options right-5 sm:right-36">
                 {snap.matcodes.map((mat, index) => (
-                    <div key={mat} className="circle m-2" style={{ background: mat }} onClick={() => (state.mat = mat, console.log(mat))}>
+                    <div key={mat} className="circle m-2" style={{ background: mat }} onClick={() => { state.mat = mat; playClick() }}>
                         <p className='ml-10 hidden sm:block'>{snap.mats[index]}</p>
                     </div>
                 ))}
             </div>
             <div className="absolute left-[50px] bottom-[40px]">
                 <div className="flex gap-5">
-                    <div className="slide--button" onClick={() => (state.anims[0] = !state.anims[0])}>
+                    <div className="slide--button" onClick={() => (state.anims[0] = !state.anims[0], playSlide())}>
                         {/* <img src={'three2_thumb.png'} alt="brand" /> */}
                         <p>Slides</p>
                     </div>
-                    <div className="slide--button" onClick={() => (state.anims[1] = !state.anims[1])}>
+                    <div className="slide--button" onClick={() => (state.anims[1] = !state.anims[1], playSlide())}>
                         {/* <img src={'three2_thumb.png'} alt="brand" /> */}
                         <p>Tilts</p>
                     </div>
@@ -113,11 +124,11 @@ function Customizer() {
             </div>
             <div className="absolute right-[50px] bottom-[40px]">
                 <div className="flex gap-5">
-                    <div className="slide--button" onClick={() => (state.grid = true)}>
+                    <div className="slide--button" onClick={() => (state.grid = true, playClick())}>
                         {/* <img src={'three2_thumb.png'} alt="brand" /> */}
                         <p>Grid</p>
                     </div>
-                    <div className="slide--button" onClick={() => (state.grid = false)}>
+                    <div className="slide--button" onClick={() => (state.grid = false, playClick())}>
                         {/* <img src={'three2_thumb.png'} alt="brand" /> */}
                         <p>No Grid</p>
                     </div>
@@ -131,11 +142,12 @@ function Customizer() {
                     link.setAttribute('download', 'canvas.png')
                     link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'))
                     link.click()
+                    playClick()
                 }}>
                 DOWNLOAD
                 <AiFillCamera size="1.3em" />
             </button>
-            <button className="absolute top-[40px] right-[160px] back--button" style={{ background: snap.color }} onClick={() => (state.intro = true)}>
+            <button className="absolute top-[40px] right-[160px] back--button" style={{ background: snap.color }} onClick={() => (state.intro = true, playClick())}>
                 GO BACK
                 <AiOutlineArrowLeft size="1.3em" />
             </button>
