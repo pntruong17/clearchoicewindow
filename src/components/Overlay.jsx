@@ -6,7 +6,7 @@ import { useSnapshot } from 'valtio'
 import { Howler } from 'howler'
 import { playClick, playSlide } from '../SoundFx'
 import { gl } from '../global'
-import { state } from '../store'
+import { state } from '../store_win1'
 
 import logo from '../assets/CCW-Logo.png';
 import image1 from '../assets/FreshSight.png';
@@ -136,9 +136,10 @@ function Customizer() {
                 </div>
             </div>
             <div className="absolute right-[50px] bottom-[40px]">
-                <div className="flex gap-5">
+                <div className="flex flex-col md:flex-row gap-0 md:gap-3">
                     <ListGrid />
                     <ListEnv />
+                    <ListStyleGrid />
                 </div>
             </div>
             <button className="absolute top-[40px] right-[265px]
@@ -182,8 +183,8 @@ function ListEnv() {
     };
     return (
         <Listbox value={_gl.bgStyle} onChange={handleChange}>
-            <div className="relative mt-2">
-                <ListboxButton className="relative w-full cursor-default rounded-md bg-white bg-opacity-65 py-1.5 pl-5 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_gl.bgStyle}</span>
                     </span>
@@ -228,11 +229,12 @@ function ListGrid() {
     const _snap = useSnapshot(state)
     const handleChange = (value) => {
         state.gridOption = _snap.gridOptions[value]
+        //console.log(_snap.gridOption + "from Overlay")
     };
     return (
         <Listbox value={_snap.gridOption} onChange={handleChange}>
-            <div className="relative mt-2">
-                <ListboxButton className="relative w-full cursor-default rounded-md bg-white bg-opacity-65 py-1.5 pl-5 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_snap.gridOption}</span>
                     </span>
@@ -270,7 +272,7 @@ function ListSkys() {
     };
     return (
         <Listbox value={_gl.envOption} onChange={handleChange}>
-            <div className="relative mt-2">
+            <div className="relative mt-2 w-36">
                 <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_gl.envOption}</span>
@@ -290,6 +292,45 @@ function ListSkys() {
                             <div className="flex items-center">
                                 <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
                                     {env}
+                                </span>
+                            </div>
+
+                        </ListboxOption>
+                    ))}
+
+                </ListboxOptions>
+            </div>
+        </Listbox>
+    )
+}
+
+function ListStyleGrid() {
+    const _win = useSnapshot(state)
+    const handleChange = (value) => {
+        state.gridStyle = _win.gridStyles[value]
+    };
+    return (
+        <Listbox value={_win.gridStyle} onChange={handleChange}>
+            <div className="relative mt-2 w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+                    <span className="flex items-center">
+                        <span className="ml-3 block truncate uppercase text-xs">{_win.gridStyle}</span>
+                    </span>
+                </ListboxButton>
+
+                <ListboxOptions
+                    transition
+                    className="absolute bottom-10 z-10 mt-1 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                >
+                    {_win.gridStyles.map((style, index) => (
+                        <ListboxOption
+                            key={index}
+                            value={index}
+                            className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+                        >
+                            <div className="flex items-center">
+                                <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
+                                    {style}
                                 </span>
                             </div>
 
