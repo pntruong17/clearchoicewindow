@@ -197,8 +197,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.metal.geometry} material={materials.metal} position={[0, -0.003, 0]} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 0)}>
-        <mesh geometry={nodes.grid0_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.grid0_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.grid0_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.grid0_upper_1.geometry} material={matInterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 0)}>
         <mesh geometry={nodes.contour0_upper_1.geometry} material={matInterior()} />
@@ -209,8 +209,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour0_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 1)}>
-        <mesh geometry={nodes.grid1_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.grid1_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.grid1_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.grid1_upper_1.geometry} material={matInterior()} />
       </group>
 
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 1)}>
@@ -224,8 +224,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour1_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 2)}>
-        <mesh geometry={nodes.grid2_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.grid2_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.grid2_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.grid2_upper_1.geometry} material={matInterior()} />
       </group>
 
 
@@ -239,8 +239,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour2_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 3)}>
-        <mesh geometry={nodes.Grid3_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.Grid3_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.Grid3_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.Grid3_upper_1.geometry} material={matInterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 3)}>
         <mesh geometry={nodes.contour3_upper_1.geometry} material={matInterior()} />
@@ -251,8 +251,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour3_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 4)}>
-        <mesh geometry={nodes.Grid4_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.Grid4_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.Grid4_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.Grid4_upper_1.geometry} material={matInterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 4)}>
         <mesh geometry={nodes.contour4_upper_1.geometry} material={matInterior()} />
@@ -263,8 +263,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour4_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 5)}>
-        <mesh geometry={nodes.Grid5_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.Grid5_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.Grid5_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.Grid5_upper_1.geometry} material={matInterior()} />
       </group>
 
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 5)}>
@@ -278,8 +278,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour5_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 6)}>
-        <mesh geometry={nodes.Grid6_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.Grid6_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.Grid6_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.Grid6_upper_1.geometry} material={matInterior()} />
       </group>
 
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 6)}>
@@ -293,8 +293,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour6_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 7)}>
-        <mesh geometry={nodes.Grid7_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.Grid7_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.Grid7_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.Grid7_upper_1.geometry} material={matInterior()} />
       </group>
 
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 7)}>
@@ -308,8 +308,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour7_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 8)}>
-        <mesh geometry={nodes.Grid8_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.Grid8_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.Grid8_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.Grid8_upper_1.geometry} material={matInterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 8)}>
         <mesh geometry={nodes.contour8_upper_1.geometry} material={matInterior()} />
@@ -320,8 +320,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour8_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 9)}>
-        <mesh geometry={nodes.grid9_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.grid9_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.grid9_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.grid9_upper_1.geometry} material={matInterior()} />
       </group>
 
 
@@ -335,8 +335,8 @@ export function FreshSight(props) {
         <mesh geometry={nodes.contour9_upper_out_2.geometry} material={matExterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(1, 10)}>
-        <mesh geometry={nodes.grid10_upper_1.geometry} material={matExterior()} />
-        <mesh geometry={nodes.grid10_upper_2.geometry} material={matInterior()} />
+        <mesh geometry={nodes.grid10_upper_2.geometry} material={matExterior()} />
+        <mesh geometry={nodes.grid10_upper_1.geometry} material={matInterior()} />
       </group>
       <group position={[-0.014, -0.014, 0]} visible={gridSwitch(2, 10)}>
         <mesh geometry={nodes.contour10_upper_1.geometry} material={matInterior()} />
