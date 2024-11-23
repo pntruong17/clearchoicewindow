@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
 import { AiFillCamera, AiOutlineArrowLeft, AiFillSound, AiFillMuted } from 'react-icons/ai'
 import { useSnapshot } from 'valtio'
-import { Howler } from 'howler'
 import { playClick, playSlide } from '../SoundFx'
 import { gl } from '../global'
-import { state } from '../store_win1'
+import { state } from './store/storeFreshSight'
 
 import logo from '../assets/CCW-Logo.png';
+import logo2 from '../assets/fa.png'
 import image1 from '../assets/FreshSight.png';
 import image2 from '../assets/TitanEdge.png';
 import image3 from '../assets/DreamGlaze.png';
@@ -67,7 +67,7 @@ export function Overlay() {
                                     className="flex flex-col items-center cursor-pointer"
                                     onClick={() => {
                                         state.intro = false;
-                                        state.window = product.id;
+                                        gl.window = index;
                                         playClick();
                                     }}
                                 >
@@ -101,8 +101,10 @@ function Customizer() {
     }
     return (
         <div className="customizer bg-[#FDFFFF]">
-            <div className="absolute top-[40px] left-[30px] h-20 w-64 overflow-hidden">
-                <img src={logo} alt="Logo" className="h-full w-full object-contain" />
+            <div className="absolute top-[40px] left-[30px] h-10 md:h-20 w-64 flex flex-row items-center">
+                <img src={logo2} alt="Logo" className="h-full object-contain" />
+                <h2 className='pl-1 md:pl-3 text-xl md:text-3xl font-bold tracking-tighter'>{_gl.windows[_gl.window]}</h2>
+                <p className='pl-1 md:pl-3 text-xl md:text-3xl font-thin tracking-tighter'>Window</p>
             </div>
             <div className="bg-options">
                 {_gl.bgStyle == 'flats' ?

@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { easing } from 'maath'
 import { useSnapshot } from 'valtio'
-import { state } from '../../store_win1'
+import { state } from '../store/storeFreshSight'
 
 export function FreshSight(props) {
   const frame2 = useRef()
