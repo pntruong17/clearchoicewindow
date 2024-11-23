@@ -1,6 +1,6 @@
 import { proxy } from 'valtio'
 
-const state = proxy({
+const state_DG = proxy({
     intro: true,
     window: 1,
     anims: [false, false, false], //0: under frame slides, 1: under frame tilts, 2: upper frame slide
@@ -22,4 +22,4 @@ const state = proxy({
     mat: '#FEFEFE',
 })
 
-export { state }
+export { state_DG }

@@ -3,12 +3,14 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { easing } from 'maath'
 import { useSnapshot } from 'valtio'
-import { state } from '../store/storeFreshSight'
+import { state } from '../store'
+import { gl } from '../../global'
 
 export function FreshSight(props) {
   const frame2 = useRef()
   const fullWindow = useRef()
-  const _win = useSnapshot(state)
+  const _gl = useSnapshot(gl)
+  const _win = useSnapshot(state)[_gl.window]
   const { nodes, materials } = useGLTF('/FreshSight1.glb')
 
   function matInterior() {
@@ -55,44 +57,9 @@ export function FreshSight(props) {
     //return (_op == _win.gridOption && _style == _win.gridStyle || style == 1 && _win.gridStyle == state.gridStyles[2]) ? true : false;
     return (_op == _win.gridOption && _style == _win.gridStyle) ? true : false;
   }
-  function gridStyle() {
-    switch (_win.gridStyle) {
-      case 'No Grid':
-        return false;
-      case 'Grid Style 1':
-        return true;
-      case 'Grid Style 2':
-        return false;
-      default:
-        return false;
-    }
-  }
-  function gridOption1() {
-    switch (_win.gridOption) {
-      case 'No Grid':
-        return false;
-      case 'Grid Style 1':
-        return true;
-      case 'Grid Style 2':
-        return false;
-      default:
-        return false;
-    }
-  }
-  function gridOption2() {
-    switch (_win.gridOption) {
-      case 'No Grid':
-        return false;
-      case 'Grid Style 1':
-        return false;
-      case 'Grid Style 2':
-        return true;
-      default:
-        return false;
-    }
-  }
+
   useFrame((state, delta) => {
-    !_win.intro && easing.dampE(fullWindow.current.rotation, [0, -45, 0], 0.5, delta)
+    !_gl.intro && easing.dampE(fullWindow.current.rotation, [0, -45, 0], 0.5, delta)
     _win.anims[0] && !_win.anims[1] ? easing.damp3(frame2.current.position, [0, 0.9, 0], 0.4, delta) : easing.damp3(frame2.current.position, [0, 0.0, 0], 0.4, delta)
     _win.anims[1] ? easing.damp3(frame2.current.position, [0, -0.9, 0], 0.4, delta) : easing.damp3(frame2.current.position, [0, 0.0, 0], 0.4, delta)
     _win.anims[1] ? easing.dampE(frame2.current.rotation, [0, 0, -45], 0.3, delta) : easing.dampE(frame2.current.rotation, [0, 0.0, 0], 0.3, delta)

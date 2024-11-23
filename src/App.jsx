@@ -3,7 +3,6 @@ import { useControls } from 'leva'
 import { Canvas } from '@react-three/fiber'
 import { Environment, Center, PresentationControls } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
-import { state } from './components/store/storeFreshSight'
 import { gl } from './global'
 import { Overlay } from './components/Overlay'
 import Window_1 from './components/Window_1'
@@ -11,7 +10,6 @@ import { playThemeMusic } from './SoundFx'
 import './App.css'
 
 function App({ position = [0, 0, 1.68], fov = 50 }) {
-  const snap = useSnapshot(state)
   const _gl = useSnapshot(gl)
 
   useEffect(() => {
@@ -64,7 +62,7 @@ function Env0() {
 }
 
 function Env1() {
-  const snap = useSnapshot(state)
+  const snap = useSnapshot(gl)
   return (
     <>
       <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />

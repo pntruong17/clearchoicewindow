@@ -3,7 +3,9 @@ import { FreshSight } from './wd/FreshSight'
 import { DreamGlaze } from './wd/DreamGlaze'
 import { gl } from '../global'
 import { useSnapshot } from 'valtio'
+
 function Window_1(props) {
+
     const _gl = useSnapshot(gl)
 
     function pickWindow() {
@@ -16,8 +18,6 @@ function Window_1(props) {
                 return <FreshSight />
         }
     }
-
-
     return (
         <>
             {pickWindow()}
