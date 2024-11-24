@@ -3,7 +3,8 @@ import { proxy } from 'valtio'
 const gl = proxy({
     intro: true,
     music: false,
-    camOptions: [],
+    camOptions: ['Presentation', 'Orbit'],
+    camOption: 'Presentation',
 
     colors: ['#FDFFFF', '#EFBD4E', '#80C670', '#726DE8', '#EF674E', '#353934'],
     color: '#FDFFFF',

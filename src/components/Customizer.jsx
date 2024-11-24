@@ -22,11 +22,11 @@ export default function Customizer() {
             </div>
             <div className="bg-options">
                 {_gl.bgStyle == 'flats' ?
-                    (
-                        _gl.colors.map((color) => (
-                            <div key={color} className="circle" style={{ background: color }} onClick={() => { gl.color = color; playClick() }}></div>
-                        ))
-                    ) : <ListSkys />
+
+                    // _gl.colors.map((color) => (
+                    //     <div key={color} className="circle" style={{ background: color }} onClick={() => { gl.color = color; playClick() }}></div>
+                    // ))
+                    <ListColorBackdrop /> : <ListSkys />
                 }
             </div>
             <div className="matt-options right-5 sm:right-36">
@@ -35,7 +35,7 @@ export default function Customizer() {
                         <p className='ml-10 hidden sm:block'>{_win.mats[index]}</p>
                     </div>
                 ))} */}
-                {_win.colorInOutDiff ? <ListColor2 /> : <ListColor1 />}
+
             </div>
             <div className="absolute left-[20px] bottom-1/2">
                 <div className="flex flex-col gap-5">
@@ -54,9 +54,11 @@ export default function Customizer() {
             </div>
             <div className="absolute right-[50px] bottom-[40px]">
                 <div className="flex flex-col md:flex-row gap-0 md:gap-3">
+
+                    <ListEnv />
+                    {_win.colorInOutDiff ? <ListColor2 /> : <ListColor1 />}
                     <ListScreen />
                     <ListGrid _snap={_win} />
-                    <ListEnv />
                     <ListStyleGrid />
                 </div>
             </div>
@@ -102,6 +104,7 @@ function ListEnv() {
     return (
         <Listbox value={_gl.bgStyle} onChange={handleChange}>
             <div className="relative mt-2 w-36">
+                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>backdrop</p>
                 <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_gl.bgStyle}</span>
@@ -153,6 +156,7 @@ function ListGrid({ _snap }) {
     return (
         <Listbox value={_snap.gridOption} onChange={handleChange}>
             <div className="relative mt-2 w-36">
+                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>grid options</p>
                 <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_snap.gridOption}</span>
@@ -232,6 +236,7 @@ function ListStyleGrid() {
     return (
         <Listbox value={_win.gridStyle} onChange={handleChange}>
             <div className="relative mt-2 w-36">
+                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>grid style</p>
                 <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_win.gridStyle}</span>
@@ -276,6 +281,7 @@ function ListColor1() {
     return (
         <Listbox value={_win.colorSelected} onChange={handleChange}>
             <div className="relative mt-2 w-36">
+                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>color options</p>
                 <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_win.colorSelected}</span>
@@ -322,6 +328,7 @@ function ListColor2() {
     return (
         <>
             <Listbox value={_win.excolorSelected} onChange={handleChangeEx}>
+                <p className='w-full text-center capitalize text-xs text-gray-500 py-0 md:py-1'>exterior colors</p>
                 <div className="relative mt-2 w-36">
                     <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                         <span className="flex items-center">
@@ -353,6 +360,7 @@ function ListColor2() {
             </Listbox>
             <Listbox value={_win.incolorSelected} onChange={handleChangeIn}>
                 <div className="relative mt-2 w-36">
+                    <p className='w-full text-center capitalize text-xs text-gray-500 py-0 md:py-1'>interior colors</p>
                     <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                         <span className="flex items-center">
                             <span className="ml-3 block truncate uppercase text-xs">{_win.incolorSelected}</span>
@@ -396,6 +404,7 @@ function ListScreen() {
     return (
         <Listbox value={_win.screenOption} onChange={handleChange}>
             <div className="relative mt-2 w-36">
+                <p className='w-full text-center text-xs text-gray-500 py-0 md:py-1'>Screen Options</p>
                 <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
                         <span className="ml-3 block truncate uppercase text-xs">{_win.screenOption}</span>
@@ -415,6 +424,49 @@ function ListScreen() {
                             <div className="flex items-center">
                                 <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
                                     {screen}
+                                </span>
+                            </div>
+
+                        </ListboxOption>
+                    ))}
+
+                </ListboxOptions>
+            </div>
+        </Listbox>
+    )
+}
+
+function ListColorBackdrop() {
+    const _gl = useSnapshot(gl)
+    console.log(_gl.color)
+    const handleChange = (value) => {
+        gl.color = _gl.colors[value]
+    };
+    return (
+        <Listbox value={_gl.color} onChange={handleChange}>
+            <div className="relative mt-2 w-36">
+                <ListboxButton
+                    style={{ backgroundColor: _gl.color }}
+                    className={`relative w-full cursor-default border bg-opacity-25 h-[29px] px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 sm:text-sm/6`}>
+                    <span className="flex items-center">
+                        <span className="ml-3 block truncate uppercase text-xs">{'  '}</span>
+                    </span>
+                </ListboxButton>
+
+                <ListboxOptions
+                    transition
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                >
+                    {_gl.colors.map((color, index) => (
+                        <ListboxOption
+                            key={index}
+                            value={index}
+                            style={{ backgroundColor: color }}
+                            className={`group relative cursor-default h-6 select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white`}
+                        >
+                            <div className="flex items-center">
+                                <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
+                                    {' '}
                                 </span>
                             </div>
 

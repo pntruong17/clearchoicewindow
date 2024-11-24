@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useState, useTransition } from 'react'
 import { useControls } from 'leva'
 import { Canvas } from '@react-three/fiber'
-import { Environment, Center, PresentationControls } from '@react-three/drei'
+import { Environment, Center, PresentationControls, OrbitControls } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
 import { gl } from './global'
 import { Overlay } from './components/Overlay'
