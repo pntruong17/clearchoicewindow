@@ -13,6 +13,7 @@ export function FreshSight(props) {
   const _win = useSnapshot(state)[_gl.window]
   const { nodes, materials } = useGLTF('/FreshSight1.glb')
   console.log(_win.colorSelected)
+
   function matInterior() {
     switch (_win.colorSelected) {
       case _win.color[0]:
@@ -45,8 +46,6 @@ export function FreshSight(props) {
       default:
         return 'Invalid value';
     }
-
-
   }
 
   function gridSwitch(style, option) {

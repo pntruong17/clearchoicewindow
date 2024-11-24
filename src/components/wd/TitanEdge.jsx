@@ -7,7 +7,8 @@ import { useSnapshot } from 'valtio'
 import { state } from '../store'
 import { gl } from '../../global'
 
-export function SolidView(props) {
+export function TitanEdge(props) {
+  const { nodes, materials } = useGLTF('/TitanEdge.glb')
   const offsetF2 = 0.28  // điều chỉnh gốc tọa độ xoay của vật
   const offsetPosF2 = 0 // điều chỉnh vị trí trục Y của vật
   const restPosF2 = -1 * offsetF2 - offsetPosF2 // trả về vị trí ban đầu của vật 
@@ -20,14 +21,12 @@ export function SolidView(props) {
   const fullWindow = useRef()
   const _gl = useSnapshot(gl)
   const _win = useSnapshot(state)[_gl.window]
-  const { nodes, materials } = useGLTF('/SolidView.glb')
-
 
   function matInterior() {
-    switch (_win.colorSelected) {
-      case _win.color[0]:
+    switch (_win.incolorSelected) {
+      case _win.inColor[0]:
         return materials.White;
-      case _win.color[1]:
+      case _win.inColor[1]:
         return materials.Beige;
       default:
         return 'Invalid value';
@@ -35,11 +34,43 @@ export function SolidView(props) {
   }
 
   function matExterior() {
-    switch (_win.colorSelected) {
-      case _win.color[0]:
+    switch (_win.excolorSelected) {
+      case _win.exColor[0]:
         return materials.White;
-      case _win.color[1]:
+      case _win.exColor[1]:
         return materials.Beige;
+      case _win.exColor[2]:
+        return materials.Cashmere;
+      case _win.exColor[3]:
+        return materials.Ivory;
+      case _win.exColor[4]:
+        return materials.Wicker;
+      case _win.exColor[5]:
+        return materials.Sandalwood;
+      case _win.exColor[6]:
+        return materials.Clay;
+      case _win.exColor[7]:
+        return materials.Sandtone;
+      case _win.exColor[8]:
+        return materials.American_Brown;
+      case _win.exColor[9]:
+        return materials.UniversalBrown;
+      case _win.exColor[10]:
+        return materials.WedgeWoodBlue;
+      case _win.exColor[11]:
+        return materials.OldWorldBlue;
+      case _win.exColor[12]:
+        return materials.ForestGreen;
+      case _win.exColor[13]:
+        return materials.Sable;
+      case _win.exColor[14]:
+        return materials.Bronze;
+      case _win.exColor[15]:
+        return materials.Black;
+      case _win.exColor[16]:
+        return materials.Cranberry;
+      case _win.exColor[17]:
+        return materials.Burgundy;
       default:
         return 'Invalid value';
     }
@@ -73,7 +104,6 @@ export function SolidView(props) {
     _win.anims[1] ? easing.damp3(frame1.current.position, [0, restPosF1 - 0.3, 0], 0.4, delta) : easing.damp3(frame1.current.position, [0, restPosF1, 0], 0.4, delta)
     _win.anims[1] ? easing.dampE(frame1.current.rotation, [0, 0, 49], 0.3, delta) : easing.dampE(frame1.current.rotation, [0, 0.0, 0], 0.3, delta)
   })
-
   return (
     <group ref={fullWindow}{...props} dispose={null}>
       <group ref={frame1} position={[0, -1 * offsetF1, 0]}>
@@ -203,4 +233,4 @@ export function SolidView(props) {
   )
 }
 
-useGLTF.preload('/SolidView.glb')
+useGLTF.preload('/TitanEdge.glb')

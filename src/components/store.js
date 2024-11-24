@@ -135,7 +135,7 @@ const state = proxy([
         colorInOutDiff: true,
         color: [],
         colorSelected: '',
-        exColor: ['White', 'Beige', 'Cashmere', 'Ivory', 'Wicker', 'Sandalwood', 'Clay', 'Sandstone', 'American Brown', 'Universal Brown', 'Wedgewood Blue', 'Old World Blue', 'Forest Green', 'Sable Bronze', 'True Black', 'Cranberry', 'Burgandy'],
+        exColor: ['White', 'Beige', 'Cashmere', 'Ivory', 'Wicker', 'Sandalwood', 'Clay', 'Sandstone', 'American Brown', 'Universal Brown', 'Wedgewood Blue', 'Old World Blue', 'Forest Green', 'Sable', 'Bronze', 'True Black', 'Cranberry', 'Burgandy'],
         inColor: ['White', 'Beige'],
         excolorSelected: 'White',
         incolorSelected: 'White',

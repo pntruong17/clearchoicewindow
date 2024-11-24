@@ -2,6 +2,7 @@
 import { FreshSight } from './wd/FreshSight'
 import { DreamGlaze } from './wd/DreamGlaze'
 import { SolidView } from './wd/SolidView'
+import { TitanEdge } from './wd/TitanEdge'
 import { gl } from '../global'
 import { useSnapshot } from 'valtio'
 
