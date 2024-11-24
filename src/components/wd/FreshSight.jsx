@@ -12,18 +12,18 @@ export function FreshSight(props) {
   const _gl = useSnapshot(gl)
   const _win = useSnapshot(state)[_gl.window]
   const { nodes, materials } = useGLTF('/FreshSight1.glb')
-
+  console.log(_win.colorSelected)
   function matInterior() {
-    switch (_win.mat) {
-      case '#FEFEFE':
+    switch (_win.colorSelected) {
+      case _win.color[0]:
         return materials.white;
-      case '#8D7D73':
+      case _win.color[1]:
         return materials.clay;
-      case '#CFC0A1':
+      case _win.color[2]:
         return materials.sandtone;
-      case '#07080B':
+      case _win.color[3]:
         return materials.white;
-      case '#52462A':
+      case _win.color[4]:
         return materials.white;
       default:
         return 'Invalid value';
@@ -31,16 +31,16 @@ export function FreshSight(props) {
   }
 
   function matExterior() {
-    switch (_win.mat) {
-      case '#FEFEFE':
+    switch (_win.colorSelected) {
+      case _win.color[0]:
         return materials.white;
-      case '#8D7D73':
+      case _win.color[1]:
         return materials.clay;
-      case '#CFC0A1':
+      case _win.color[2]:
         return materials.sandtone;
-      case '#07080B':
+      case _win.color[3]:
         return materials.black;
-      case '#52462A':
+      case _win.color[4]:
         return materials.bronze;
       default:
         return 'Invalid value';

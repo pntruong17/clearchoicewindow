@@ -9,8 +9,7 @@ import logo2 from '../assets/fa.png'
 
 export default function Customizer() {
     const _gl = useSnapshot(gl)
-    const _snap = useSnapshot(state)[_gl.window]
-    console.log(_snap)
+    const _win = useSnapshot(state)[_gl.window]
     const handleMusic = (bool) => {
         gl.music = bool
     }
@@ -31,11 +30,12 @@ export default function Customizer() {
                 }
             </div>
             <div className="matt-options right-5 sm:right-36">
-                {_snap.matcodes.map((mat, index) => (
+                {/* {_win.matcodes.map((mat, index) => (
                     <div key={mat} className="circle m-2" style={{ background: mat }} onClick={() => { state[_gl.window].mat = mat; playClick() }}>
-                        <p className='ml-10 hidden sm:block'>{_snap.mats[index]}</p>
+                        <p className='ml-10 hidden sm:block'>{_win.mats[index]}</p>
                     </div>
-                ))}
+                ))} */}
+                {_win.colorInOutDiff ? <ListColor2 /> : <ListColor1 />}
             </div>
             <div className="absolute left-[20px] bottom-1/2">
                 <div className="flex flex-col gap-5">
@@ -54,7 +54,8 @@ export default function Customizer() {
             </div>
             <div className="absolute right-[50px] bottom-[40px]">
                 <div className="flex flex-col md:flex-row gap-0 md:gap-3">
-                    <ListGrid _snap={_snap} />
+                    <ListScreen />
+                    <ListGrid _snap={_win} />
                     <ListEnv />
                     <ListStyleGrid />
                 </div>
@@ -199,7 +200,7 @@ function ListSkys() {
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_gl.envOptions.map((env, index) => (
                         <ListboxOption
@@ -239,7 +240,7 @@ function ListStyleGrid() {
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_win.gridStyles.map((style, index) => (
                         <ListboxOption
@@ -250,6 +251,170 @@ function ListStyleGrid() {
                             <div className="flex items-center">
                                 <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
                                     {style}
+                                </span>
+                            </div>
+
+                        </ListboxOption>
+                    ))}
+
+                </ListboxOptions>
+            </div>
+        </Listbox>
+    )
+}
+
+function ListColor1() {
+    const _gl = useSnapshot(gl)
+    const _win = useSnapshot(state)[_gl.window]
+
+
+    const handleChange = (value) => {
+        state[_gl.window].colorSelected = _win.color[value]
+    };
+
+
+    return (
+        <Listbox value={_win.colorSelected} onChange={handleChange}>
+            <div className="relative mt-2 w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+                    <span className="flex items-center">
+                        <span className="ml-3 block truncate uppercase text-xs">{_win.colorSelected}</span>
+                    </span>
+                </ListboxButton>
+
+                <ListboxOptions
+                    transition
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                >
+                    {_win.color.map((color, index) => (
+                        <ListboxOption
+                            key={index}
+                            value={index}
+                            className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+                        >
+                            <div className="flex items-center">
+                                <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
+                                    {color}
+                                </span>
+                            </div>
+
+                        </ListboxOption>
+                    ))}
+
+                </ListboxOptions>
+            </div>
+        </Listbox>
+    )
+}
+
+function ListColor2() {
+    const _gl = useSnapshot(gl)
+    const _win = useSnapshot(state)[_gl.window]
+
+
+    const handleChangeEx = (value) => {
+        state[_gl.window].excolorSelected = _win.exColor[value]
+    };
+    const handleChangeIn = (value) => {
+        state[_gl.window].incolorSelected = _win.inColor[value]
+    };
+
+    return (
+        <>
+            <Listbox value={_win.excolorSelected} onChange={handleChangeEx}>
+                <div className="relative mt-2 w-36">
+                    <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+                        <span className="flex items-center">
+                            <span className="ml-3 block truncate uppercase text-xs">{_win.excolorSelected}</span>
+                        </span>
+                    </ListboxButton>
+
+                    <ListboxOptions
+                        transition
+                        className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    >
+                        {_win.exColor.map((excolor, index) => (
+                            <ListboxOption
+                                key={index}
+                                value={index}
+                                className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+                            >
+                                <div className="flex items-center">
+                                    <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
+                                        {excolor}
+                                    </span>
+                                </div>
+
+                            </ListboxOption>
+                        ))}
+
+                    </ListboxOptions>
+                </div>
+            </Listbox>
+            <Listbox value={_win.incolorSelected} onChange={handleChangeIn}>
+                <div className="relative mt-2 w-36">
+                    <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+                        <span className="flex items-center">
+                            <span className="ml-3 block truncate uppercase text-xs">{_win.incolorSelected}</span>
+                        </span>
+                    </ListboxButton>
+
+                    <ListboxOptions
+                        transition
+                        className="absolute bottom-10 z-10 mt-1 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    >
+                        {_win.inColor.map((incolor, index) => (
+                            <ListboxOption
+                                key={index}
+                                value={index}
+                                className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+                            >
+                                <div className="flex items-center">
+                                    <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
+                                        {incolor}
+                                    </span>
+                                </div>
+
+                            </ListboxOption>
+                        ))}
+
+                    </ListboxOptions>
+                </div>
+            </Listbox>
+        </>
+    )
+}
+
+function ListScreen() {
+    const _gl = useSnapshot(gl)
+    const _win = useSnapshot(state)[_gl.window]
+    const handleChange = (value) => {
+        state[_gl.window].screenOption = _win.screenOptions[value]
+    };
+
+
+    return (
+        <Listbox value={_win.screenOption} onChange={handleChange}>
+            <div className="relative mt-2 w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+                    <span className="flex items-center">
+                        <span className="ml-3 block truncate uppercase text-xs">{_win.screenOption}</span>
+                    </span>
+                </ListboxButton>
+
+                <ListboxOptions
+                    transition
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                >
+                    {_win.screenOptions.map((screen, index) => (
+                        <ListboxOption
+                            key={index}
+                            value={index}
+                            className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+                        >
+                            <div className="flex items-center">
+                                <span className="capitalize ml-3 block truncate text-xs font-normal group-data-[selected]:font-semibold">
+                                    {screen}
                                 </span>
                             </div>
 
