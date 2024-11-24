@@ -16,7 +16,7 @@ const gl = proxy({
     envOption: 'sunset',
 
     bgStyles: ['flats', 'presets'],
-    bgStyle: 'flats'
+    bgStyle: 'presets'
 })
 
 export { gl }

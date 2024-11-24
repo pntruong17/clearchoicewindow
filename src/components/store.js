@@ -103,7 +103,7 @@ const state = proxy([
         gridStyles: ['Flat btw Glass', 'Contour btw Glass'],
         gridStyle: 'Flat btw Glass',
 
-        gridOptions: ['No Grid', '1V1H', '1V1Hx2', '2V1Hx2', '2V1H', '2V1HT', '2V2Hx2T', '2V1Hx2T', '2V0Hx2', '2V0H', '1V0Hx2', '1V0H'],
+        gridOptions: ['No Grid', '1V1H', '1V1Hx2', '2V1Hx2', '2V1H', '2V1HT', '2V2Hx2T'],
         gridOption: 'No Grid',
 
         screenOptions: ['No Screen', 'Half Screen', 'Full Screen'],

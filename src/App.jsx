@@ -22,13 +22,13 @@ function App({ position = [0, 0, 1.68], fov = 50 }) {
       <Canvas shadows camera={{ position, fov }} gl={{ preserveDrawingBuffer: true }} eventSource={document.getElementById('root')} eventPrefix="client">
 
         <fog attach="fog" args={['black', 15, 22.5]} />
-        <ambientLight intensity={0.5 * Math.PI} />
+        <ambientLight intensity={0.25 * Math.PI} />
         {/* <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" /> */}
         {_gl.bgStyle == 'flats' ? <Env1 /> : <Env0 />}
         <PresentationControls
           speed={1.5}
           global
-          zoom={0.7}
+          zoom={1.5}
           polar={[-1, Math.PI / 4]}
         >
           <Suspense fallback={''}>

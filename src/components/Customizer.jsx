@@ -20,23 +20,7 @@ export default function Customizer() {
                 <h2 className='pl-1 md:pl-3 text-xl md:text-3xl font-bold tracking-tighter'>{_gl.windows[_gl.window]}</h2>
                 <p className='pl-1 md:pl-3 text-xl md:text-3xl font-thin tracking-tighter'>Window</p>
             </div>
-            <div className="bg-options">
-                {_gl.bgStyle == 'flats' ?
 
-                    // _gl.colors.map((color) => (
-                    //     <div key={color} className="circle" style={{ background: color }} onClick={() => { gl.color = color; playClick() }}></div>
-                    // ))
-                    <ListColorBackdrop /> : <ListSkys />
-                }
-            </div>
-            <div className="matt-options right-5 sm:right-36">
-                {/* {_win.matcodes.map((mat, index) => (
-                    <div key={mat} className="circle m-2" style={{ background: mat }} onClick={() => { state[_gl.window].mat = mat; playClick() }}>
-                        <p className='ml-10 hidden sm:block'>{_win.mats[index]}</p>
-                    </div>
-                ))} */}
-
-            </div>
             <div className="absolute left-[20px] bottom-1/2">
                 <div className="flex flex-col gap-5">
                     <button className="cursor-pointer text-xs rounded-md px-1 py-5 bg-white bg-opacity-65 hover:bg-black hover:text-white ease-in-out transition-all duration-200"
@@ -52,14 +36,14 @@ export default function Customizer() {
 
                 </div>
             </div>
-            <div className="absolute right-[50px] bottom-[40px]">
-                <div className="flex flex-col md:flex-row gap-0 md:gap-3">
-
-                    <ListEnv />
+            <div className="absolute right-0 md:bottom-0 w-36 md:w-full md:h-16 h-full  ">
+                <div className="flex md:flex-row flex-col justify-end md:justify-center items-start h-full gap-0 md:gap-2 p-3 md:p-0">
                     {_win.colorInOutDiff ? <ListColor2 /> : <ListColor1 />}
                     <ListScreen />
                     <ListGrid _snap={_win} />
                     <ListStyleGrid />
+                    {_gl.bgStyle == 'flats' ? <ListColorBackdrop /> : <ListSkys />}
+                    <ListEnv />
                 </div>
             </div>
             <button className="absolute top-[40px] right-[265px]
@@ -103,17 +87,16 @@ function ListEnv() {
     };
     return (
         <Listbox value={_gl.bgStyle} onChange={handleChange}>
-            <div className="relative mt-2 w-36">
-                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>backdrop</p>
-                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-full md:w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
-                        <span className="ml-3 block truncate uppercase text-xs">{_gl.bgStyle}</span>
+                        <span className="block uppercase text-xs text-center w-full">backdrop</span>
                     </span>
                 </ListboxButton>
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
 
                     <ListboxOption
@@ -155,17 +138,16 @@ function ListGrid({ _snap }) {
     };
     return (
         <Listbox value={_snap.gridOption} onChange={handleChange}>
-            <div className="relative mt-2 w-36">
-                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>grid options</p>
-                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-full md:w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
-                        <span className="ml-3 block truncate uppercase text-xs">{_snap.gridOption}</span>
+                        <span className="block uppercase text-xs text-center w-full">grid options</span>
                     </span>
                 </ListboxButton>
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_snap.gridOptions.map((grid, index) => (
                         <ListboxOption
@@ -195,16 +177,16 @@ function ListSkys() {
     };
     return (
         <Listbox value={_gl.envOption} onChange={handleChange}>
-            <div className="relative mt-2 w-36">
-                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-full md:w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
-                        <span className="ml-3 block truncate uppercase text-xs">{_gl.envOption}</span>
+                        <span className="block uppercase text-xs text-center w-full">enviroments</span>
                     </span>
                 </ListboxButton>
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_gl.envOptions.map((env, index) => (
                         <ListboxOption
@@ -235,17 +217,16 @@ function ListStyleGrid() {
     };
     return (
         <Listbox value={_win.gridStyle} onChange={handleChange}>
-            <div className="relative mt-2 w-36">
-                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>grid style</p>
-                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-full md:w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
-                        <span className="ml-3 block truncate uppercase text-xs">{_win.gridStyle}</span>
+                        <span className="block uppercase text-xs text-center w-full">grid style</span>
                     </span>
                 </ListboxButton>
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_win.gridStyles.map((style, index) => (
                         <ListboxOption
@@ -280,17 +261,16 @@ function ListColor1() {
 
     return (
         <Listbox value={_win.colorSelected} onChange={handleChange}>
-            <div className="relative mt-2 w-36">
-                <p className='w-full text-center text-xs capitalize text-gray-500 py-0 md:py-1'>color options</p>
-                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-full md:w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
-                        <span className="ml-3 block truncate uppercase text-xs">{_win.colorSelected}</span>
+                        <span className="block uppercase text-xs text-center w-full">color options</span>
                     </span>
                 </ListboxButton>
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_win.color.map((color, index) => (
                         <ListboxOption
@@ -328,17 +308,16 @@ function ListColor2() {
     return (
         <>
             <Listbox value={_win.excolorSelected} onChange={handleChangeEx}>
-                <p className='w-full text-center capitalize text-xs text-gray-500 py-0 md:py-1'>exterior colors</p>
-                <div className="relative mt-2 w-36">
-                    <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+                <div className="relative mt-2 w-full md:w-36">
+                    <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                         <span className="flex items-center">
-                            <span className="ml-3 block truncate uppercase text-xs">{_win.excolorSelected}</span>
+                            <span className="block uppercase text-xs text-center w-full">exterior colors</span>
                         </span>
                     </ListboxButton>
 
                     <ListboxOptions
                         transition
-                        className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                        className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                     >
                         {_win.exColor.map((excolor, index) => (
                             <ListboxOption
@@ -359,17 +338,16 @@ function ListColor2() {
                 </div>
             </Listbox>
             <Listbox value={_win.incolorSelected} onChange={handleChangeIn}>
-                <div className="relative mt-2 w-36">
-                    <p className='w-full text-center capitalize text-xs text-gray-500 py-0 md:py-1'>interior colors</p>
-                    <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+                <div className="relative mt-2 w-full md:w-36">
+                    <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                         <span className="flex items-center">
-                            <span className="ml-3 block truncate uppercase text-xs">{_win.incolorSelected}</span>
+                            <span className="block uppercase text-xs text-center w-full">interior colors</span>
                         </span>
                     </ListboxButton>
 
                     <ListboxOptions
                         transition
-                        className="absolute bottom-10 z-10 mt-1 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                        className="absolute bottom-10 z-10 mt-1 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                     >
                         {_win.inColor.map((incolor, index) => (
                             <ListboxOption
@@ -403,17 +381,16 @@ function ListScreen() {
 
     return (
         <Listbox value={_win.screenOption} onChange={handleChange}>
-            <div className="relative mt-2 w-36">
-                <p className='w-full text-center text-xs text-gray-500 py-0 md:py-1'>Screen Options</p>
-                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 pl-8 pr-12 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
+            <div className="relative mt-2 w-full md:w-36">
+                <ListboxButton className="relative w-full cursor-default border bg-white bg-opacity-25 py-1.5 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm/6">
                     <span className="flex items-center">
-                        <span className="ml-3 block truncate uppercase text-xs">{_win.screenOption}</span>
+                        <span className="block uppercase text-xs text-center w-full">Screen Options</span>
                     </span>
                 </ListboxButton>
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_win.screenOptions.map((screen, index) => (
                         <ListboxOption
@@ -444,18 +421,18 @@ function ListColorBackdrop() {
     };
     return (
         <Listbox value={_gl.color} onChange={handleChange}>
-            <div className="relative mt-2 w-36">
+            <div className="relative mt-2 w-full md:w-36">
                 <ListboxButton
                     style={{ backgroundColor: _gl.color }}
-                    className={`relative w-full cursor-default border bg-opacity-25 h-[29px] px-2 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 sm:text-sm/6`}>
+                    className={`relative w-full cursor-default border bg-opacity-25 h-[29px] text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 sm:text-sm/6`}>
                     <span className="flex items-center">
-                        <span className="ml-3 block truncate uppercase text-xs">{'  '}</span>
+                        <span className="block uppercase text-xs text-center w-full">colors backdrop</span>
                     </span>
                 </ListboxButton>
 
                 <ListboxOptions
                     transition
-                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-65 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                    className="absolute bottom-10 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white bg-opacity-80 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                 >
                     {_gl.colors.map((color, index) => (
                         <ListboxOption
