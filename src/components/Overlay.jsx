@@ -11,11 +11,11 @@ import Customizer from './Customizer'
 import logo from '../assets/CCW-Logo.png';
 import logo2 from '../assets/fa.png'
 import image1 from '../assets/FreshSight.png';
-import image2 from '../assets/TitanEdge.png';
-import image3 from '../assets/DreamGlaze.png';
-import image4 from '../assets/DreamGlaze.png';
-import image5 from '../assets/TitanEdge.png';
-import image6 from '../assets/DreamGlaze.png';
+import image2 from '../assets/DreamGlaze.png';
+import image3 from '../assets/Impervia.png';
+import image4 from '../assets/LifeStyle.png';
+import image5 from '../assets/SolidView.png';
+import image6 from '../assets/TitanEdge.png';
 
 export function Overlay() {
 

@@ -94,7 +94,7 @@ export function TitanEdge(props) {
   }
 
   useFrame((state, delta) => {
-    !_gl.intro && easing.dampE(fullWindow.current.rotation, [0, -45, 0], 0.5, delta)
+    !_gl.intro && easing.dampE(fullWindow.current.rotation, [0, 45, 0], 0.5, delta)
     _win.anims[0] && !_win.anims[1] ? easing.damp3(frame1.current.position, [0, restPosF1 - 0.5, 0], 0.4, delta) : easing.damp3(frame1.current.position, [0, restPosF1, 0], 0.4, delta)
     _win.anims[0] && !_win.anims[1] ? easing.damp3(frame2.current.position, [0, restPosF2 + 0.5, 0], 0.4, delta) : easing.damp3(frame2.current.position, [0, restPosF2, 0], 0.4, delta)
 

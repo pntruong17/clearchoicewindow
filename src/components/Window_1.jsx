@@ -1,8 +1,10 @@
 
 import { FreshSight } from './wd/FreshSight'
-import { DreamGlaze } from './wd/DreamGlaze'
+import { DreamGraze } from './wd/DreamGraze'
 import { SolidView } from './wd/SolidView'
 import { TitanEdge } from './wd/TitanEdge'
+import { Lifestyle } from './wd/Lifestyle'
+import { Impervia } from './wd/Impervia'
 import { gl } from '../global'
 import { useSnapshot } from 'valtio'
 
@@ -15,7 +17,7 @@ function Window_1(props) {
             case 0:
                 return <FreshSight />
             case 1:
-                return <DreamGlaze />
+                return <DreamGraze />
             case 2:
                 return <Impervia />
             case 3:
