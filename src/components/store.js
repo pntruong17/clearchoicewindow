@@ -7,9 +7,10 @@ const state = proxy([
         anims: [false, false, false], //0: under frame slides, 1: under frame tilts, 2: upper frame slide
 
         gridStyles: ['Flat btw Glass', 'Contour outside Glass'],
+
         gridStyle: 'Contour outside Glass',
 
-        gridOptions: ['No Grid', '1V1H', '1V1Hx2', '2V1Hx2', '2V1H', '2V1HT', '2V2Hx2T', '2V1Hx2T', '2V0Hx2', '2V0H', '1V0Hx2', '1V0H'],
+        gridOptions: ['No Grid', '1V1H', '2V1H', '2V2H', '2V2H2', '3V2H', '2V0H'],
         gridOption: 'No Grid',
 
         screenOptions: ['No Screen', 'Half Screen'], //['No Screen', 'Half Screen', 'Full Screen'],
@@ -32,7 +33,7 @@ const state = proxy([
         gridStyles: ['Contour btw Glass', 'Contour outside Glass'],
         gridStyle: 'Contour outside Glass',
 
-        gridOptions: ['No Grid', '1V1H', '1V1Hx2', '2V1Hx2', '2V1H', '2V1HT', '2V2Hx2T', '2V1Hx2T', '2V0Hx2', '2V0H', '1V0Hx2', '1V0H'],
+        gridOptions: ['No Grid', '1V1H', '2V1H', '2V0H', '1V0H'],
         gridOption: 'No Grid',
 
         screenOptions: ['No Screen', 'Half Screen', 'Full Screen'],
@@ -57,7 +58,7 @@ const state = proxy([
         gridStyles: ['Contour btw Glass', 'Contour outside Glass'],
         gridStyle: 'Contour outside Glass',
 
-        gridOptions: ['No Grid', '1V1H', '1V1Hx2', '2V1Hx2', '2V1H', '2V1HT', '2V2Hx2T', '2V1Hx2T', '2V0Hx2', '2V0H', '1V0Hx2', '1V0H'],
+        gridOptions: ['No Grid', '1V1H', '2V1H', '2V2H', '2V0H', '2V1H2'],
         gridOption: 'No Grid',
 
         screenOptions: ['No Screen', 'Half Screen T', 'Half Screen D', 'Full Screen'],
